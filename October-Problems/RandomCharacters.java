@@ -2,11 +2,11 @@ public class RandomCharacters {
 
     public static void main(String[] args) {
         int vowelsCount = 0;
-        String vowels = "AEOIU";
 
         for (int i = 1; i <= 100; i++) {
-            Character randomChar = (char)(Math.random()*26 + 65);
-            if(Character.toString(randomChar).contains(vowels)) {
+            char randomChar = (char)(Math.random()*26 + 65);
+            if(randomChar == 'A' || randomChar == 'O' || randomChar == 'U'
+                    || randomChar == 'E' || randomChar == 'I') {
                 vowelsCount++;
             }
 
