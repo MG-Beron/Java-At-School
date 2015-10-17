@@ -1,4 +1,5 @@
 public class TwoSameDigits500To600 {
+    
     public static void main(String[] args) {
 
         int count = 0;
