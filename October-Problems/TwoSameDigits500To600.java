@@ -1,6 +1,3 @@
-/**
- * Created by Denev on 17.10.2015 ã..
- */
 public class TwoSameDigits500To600 {
     public static void main(String[] args) {
 
