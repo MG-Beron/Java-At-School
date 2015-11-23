@@ -1,6 +1,6 @@
 package November;
 
-public class Main {
+public class TriangleDemo {
     public static void main(String[] args) {
         Triangle tr = new Triangle(4, 5);
         System.out.println("c = " + tr.getHypotenuse());

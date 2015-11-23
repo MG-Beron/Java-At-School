@@ -1,14 +1,29 @@
 package November;
 
+import java.util.Scanner;
+
 public class Rectangles {
     public static void main(String[] args) {
-        Rectangle smallRect = new Rectangle(2, 3);
-        smallRect.printArea();
-        smallRect.printPerimeter();
+        Scanner scanner = new Scanner(System.in);
+        Rectangle m[] = new Rectangle[5]; //Декларираме масива
 
-        Rectangle largeRect = new Rectangle(15, 20);
-        largeRect.printArea();
-        largeRect.printPerimeter();
+        int maxPerimeterIndex = 0;
+        int maxPerimeter = 0;
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Enter m[" + i + "] side a and b -> ");
+            int a = scanner.nextInt(); //Четем int от конзолата
+            int b = scanner.nextInt();
+            m[i] = new Rectangle(a,b);
+
+            int currentPerimeter = m[i].getPerimeter(); //Текущ периметър
+            if(maxPerimeter < currentPerimeter) { //търсим най-големия
+                maxPerimeter = currentPerimeter;
+                maxPerimeterIndex = i;
+            }
+        }
+
+        System.out.println("The rectangle with largest perimeter is m[" + maxPerimeterIndex + "]" );
+        System.out.println("The rectangle perimeter is -> " + maxPerimeter);
     }
 }
 
@@ -20,11 +35,12 @@ class Rectangle {
         b = secondSide;
     }
 
-    public void printArea() {
+    void printArea() {
         System.out.println("S = " + (a * b));
     }
-    public void printPerimeter() {
-        System.out.println("P = " + 2*(a + b));
+
+    int getPerimeter() {
+        return 2*(a + b);
     }
 }
 
