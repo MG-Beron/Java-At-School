@@ -25,7 +25,17 @@ public class GraphicsDemo extends Canvas {
         g.setColor(Color.BLACK);
         g.drawPolygon(new int[]{444, 464, 355}, new int[]{222, 22, 122}, 3);
     }
-
+    private drawRandomTriangles(int count){
+               for(int i=0;i<count;i++){
+            int rTriX[]={(int)(Math.random()*(Main.width)),(int)(Math.random()*(Main.width)),(int)(Math.random()*(Main.width))};
+            int rTriY[]={(int)(Math.random()*(Main.height)),(int)(Math.random()*(Main.height)),(int)(Math.random()*(Main.height))};
+ 
+            Color c=new Color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+            g.setColor(c);
+            g.fillPolygon(rTriX, rTriY, 3);
+            }
+    }
+    
     private void drawCenteredCircle(Graphics g, int x, int y, int r) {
         x = x - (r / 2);
         y = y - (r / 2);
