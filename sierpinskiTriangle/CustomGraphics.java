@@ -1,4 +1,4 @@
-package sarpinskiTriangle;
+package sierpinskiTriangle;
 
 import java.awt.*;
 
