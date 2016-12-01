@@ -8,10 +8,10 @@ import java.awt.event.MouseMotionListener;
 
 public class MouseMotionEvents extends Canvas implements MouseListener, MouseMotionListener {
 
-    private int x = -1000;
-    private int y = -1000;
-    private int x1 = -1000;
-    private int y1 = -1000;
+    private int x = -1;
+    private int y = -1;
+    private int x1 = -1;
+    private int y1 = -1;
 
     public MouseMotionEvents() {
         addMouseListener(this);
@@ -21,22 +21,26 @@ public class MouseMotionEvents extends Canvas implements MouseListener, MouseMot
     @Override
     public void paint(Graphics g) {
         g.setColor(Color.red);
-
         double deltaX = x - x1;
         double deltaY = y - y1;
         int r = (int) Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        g.fillOval(x - (r / 2), y - (r / 2), r, r);
+        if (x != -1) {
+           // g.fillOval(x - r, y - r, r * 2, r * 2);
+            g.drawOval(x - r, y - r, r * 2, r * 2);
+        }
     }
 
     public void mousePressed(MouseEvent evt) {
+
     }
 
     public void mouseClicked(MouseEvent evt) {
+        this.x = evt.getX();
+        this.y = evt.getY();
     }
 
     public void mouseReleased(MouseEvent evt) {
-        x = evt.getX();
-        y = evt.getY();
+
     }
 
     public void mouseEntered(MouseEvent evt) {
@@ -50,8 +54,8 @@ public class MouseMotionEvents extends Canvas implements MouseListener, MouseMot
     }
 
     public void mouseMoved(MouseEvent evt) {
-        x1 = evt.getX();
-        y1 = evt.getY();
+        this.x1 = evt.getX();
+        this.y1 = evt.getY();
         repaint();
     }
 
